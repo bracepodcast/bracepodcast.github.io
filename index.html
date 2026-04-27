@@ -1,1 +1,729 @@
-Coming soon
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <title>BRACE: Der Fußball Culture & Business Podcast</title>
+  <style>
+    :root {
+      --bg: #002329;
+      --surface: #002329;
+      --surface-hover: rgba(255, 255, 255, 0.08);
+      --text: #E94F37;
+      --muted: #a8b0bf;
+      /*--border: rgba(255, 255, 255, 0.1);*/
+      --max-width: 900px;
+      --radius: 10px;
+      /*--shadow: 0 20px 60px rgba(0, 0, 0, 0.35);*/
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #002329;
+      color: var(--text);
+      font-family: sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 32px 16px 48px;
+    }
+
+    .page {
+  max-width: var(--max-width);
+  margin: 0px auto 0; /* top margin added */
+  display: grid;
+  gap: 24px;
+}
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .hero {
+      padding: 28px 20px 0px;
+      text-align: center;
+    }
+
+    .cover {
+      width: min(100%, 300px);
+      aspect-ratio: 1 / 1;
+      margin: 10px auto 50px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #141821;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 10px;
+      color: #E94F37;
+      font-size: 1rem;
+      line-height: 1;
+        font-weight: bold;
+    }
+
+    .platforms,
+    .socials,
+    .content {
+      padding: 14px;
+    }
+      
+      .socials {
+          margin-top: -15px;
+      }
+      
+      .content {
+          margin-top: -15px;
+      }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: var(--surface-hover);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .icon-link {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .icon-link:hover {
+      transform: translateY(-1px);
+      background: var(--surface-hover);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .icon-link svg,
+    .button svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex: 0 0 auto;
+    }
+
+    .embed-wrap {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: #002329;
+      margin-bottom: 16px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 393px;
+      border: 0;
+    }
+      
+          .expand-button {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      margin: 0 0 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .expand-button:hover {
+      transform: translateY(-1px);
+      background: var(--surface-hover);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .expand-button svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.22s ease;
+      flex: 0 0 auto;
+    }
+
+    .expand-button[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    .collapsible {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.22s ease, margin 0.22s ease;
+      will-change: max-height;
+      margin: 0;
+    }
+
+    .collapsible.is-open {
+      opacity: 1;
+      margin: 0 0 18px;
+    }
+
+    .collapsible-inner {
+      padding: 2px 2px 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .collapsible-inner p {
+      margin: 0 0 14px;
+    }
+
+    .collapsible-inner p:last-child {
+      margin-bottom: 0;
+    }
+      
+      .collapsible-inner a {
+         color: var(--muted);
+      text-decoration: underline;
+      transition: color 0.18s ease, border-color 0.18s ease; 
+        
+      }
+      
+      .collapsible-inner a:hover {
+         color: var(--text);
+      text-decoration: underline;
+      transition: color 0.18s ease, border-color 0.18s ease; 
+        
+      }
+      
+      .collapsible-inner a:visited {
+         color: var(--muted);
+      text-decoration: underline;
+      transition: color 0.18s ease, border-color 0.18s ease; 
+        
+      }
+      
+      
+    .text-links {
+        margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+       justify-content: center;
+text-align: center;
+        font-size: 0.8em;
+    }
+
+    .text-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .text-links a:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+      
+      
+
+    @media (max-width: 640px) {
+      body {
+        padding: 18px 12px 28px;
+      }
+
+      .hero {
+        padding: 22px 16px 20px;
+      }
+
+      .cover {
+        width: min(100%, 320px);
+        border-radius: 24px;
+      }
+
+      .button-row {
+        grid-template-columns: 1fr;
+      }
+
+      .platforms,
+      .socials,
+      .content {
+        padding: 16px;
+      }
+    }
+      
+      
+      .podcast-placeholder {
+  min-height: 393px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.podcast-placeholder-inner {
+  max-width: 560px;
+}
+
+.podcast-placeholder-title {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.podcast-placeholder-text {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.podcast-load-button {
+  width: auto;
+}
+
+.external-content-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.external-content-overlay[hidden] {
+  display: none;
+}
+
+.external-content-modal {
+  width: min(100%, 560px);
+  padding: 24px;
+  background: #002329;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.external-content-modal h2 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.external-content-modal p {
+  margin: 0 0 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.external-content-modal a {
+  color: var(--text);
+}
+
+.external-content-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0 14px;
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--muted);
+}
+
+.button-secondary:hover {
+  color: var(--text);
+}
+
+.external-content-note {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .external-content-modal {
+    padding: 20px;
+  }
+
+  .external-content-actions {
+    flex-direction: column;
+  }
+
+  .external-content-actions .button {
+    width: 100%;
+  }
+}
+      
+      .external-content-hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: -4px;
+}
+
+.external-content-note {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 10px;
+}
+      
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero card">
+      <div class="cover">
+        <img src="brace-podcast-img.png" alt="Podcast cover" />
+      </div>
+        <p class="subtitle">BRACE: Der Fußball Culture & Business Podcast</p>
+    </section>
+
+    <section class="platforms card" aria-label="Listen now">
+      <div class="button-row">
+        <a class="button" href="https://open.spotify.com/show/1I1tyc7YYSNjNHfMhLkBlK" target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0Zm5.503 17.307a.748.748 0 0 1-1.03.247c-2.822-1.724-6.376-2.115-10.566-1.163a.75.75 0 0 1-.332-1.463c4.584-1.042 8.511-.596 11.68 1.338a.75.75 0 0 1 .248 1.041Zm1.472-3.273a.938.938 0 0 1-1.29.309c-3.23-1.985-8.153-2.56-11.975-1.4a.938.938 0 0 1-.546-1.794c4.365-1.328 9.793-.682 13.503 1.597a.938.938 0 0 1 .308 1.288Zm.126-3.408c-3.875-2.301-10.268-2.513-13.967-1.405a1.125 1.125 0 1 1-.646-2.154c4.245-1.273 11.303-1.027 15.76 1.619a1.125 1.125 0 1 1-1.147 1.94Z"/></svg>
+          <span>Spotify</span>
+        </a>
+        <a class="button" href="https://podcasts.apple.com/us/podcast/brace-fu%C3%9Fball-culture-business/id1895603441" target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Podcasts">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C7.582 0 4 3.582 4 8c0 2.971 1.62 5.562 4.023 6.947-.101.463-.393 1.575-.78 3.045-.12.455.26.884.723.816l2.034-.301 2.034.301c.464.068.844-.361.724-.816-.387-1.47-.679-2.582-.78-3.045C18.38 13.562 20 10.971 20 8c0-4.418-3.582-8-8-8Zm0 2.182A5.818 5.818 0 0 1 17.818 8c0 2.434-1.494 4.518-3.614 5.388a1.091 1.091 0 0 0-.65 1.254l.417 1.588-1.224-.181a1.096 1.096 0 0 0-.32 0l-1.224.181.417-1.588a1.091 1.091 0 0 0-.65-1.254A5.817 5.817 0 0 1 6.182 8 5.818 5.818 0 0 1 12 2.182Zm0 2.091A3.727 3.727 0 0 0 8.273 8c0 1.35.719 2.594 1.885 3.262a1.09 1.09 0 0 1 .536 1.18l-.2 1.002a.819.819 0 0 0 1.216.88L12 14.086l.29.238a.819.819 0 0 0 1.216-.88l-.2-1.002a1.09 1.09 0 0 1 .536-1.18A3.725 3.725 0 0 0 15.727 8 3.727 3.727 0 0 0 12 4.273Z"/></svg>
+          <span>Apple</span>
+        </a>
+        <a class="button" href="https://www.youtube.com/playlist?list=PLFixRcZ2PXHFCK70Ap_1vo_5H9qwCjMlw" target="_blank" rel="noopener noreferrer" aria-label="Watch on YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a2.997 2.997 0 0 0-2.11-2.12C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.388.566a2.997 2.997 0 0 0-2.11 2.12A31.125 31.125 0 0 0 0 12a31.14 31.14 0 0 0 .502 5.814 2.997 2.997 0 0 0 2.11 2.12C4.495 20.5 12 20.5 12 20.5s7.505 0 9.388-.566a2.997 2.997 0 0 0 2.11-2.12A31.14 31.14 0 0 0 24 12a31.125 31.125 0 0 0-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+          <span>YouTube</span>
+        </a>
+        <a class="button" href="https://www.spreaker.com/show/6971444/episodes/feed" target="_blank" rel="noopener noreferrer" aria-label="RSS feed">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.18 17.82a2.18 2.18 0 1 1 0-4.36 2.18 2.18 0 0 1 0 4.36ZM3 8.25v3a9.75 9.75 0 0 1 9.75 9.75h3C15.75 13.13 10.87 8.25 3 8.25Zm0-5.25v3C13.77 6 18 10.23 18 21h3C21 8.57 15.43 3 3 3Z"/></svg>
+          <span>RSS</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="socials card" aria-label="Social links">
+      <div class="social-row">
+        <a class="icon-link" href="https://www.linkedin.com/company/bracepodcast/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3 9h4v12H3Zm7 0h3.83v1.71h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5.46c0-1.3-.02-2.98-1.82-2.98-1.82 0-2.1 1.42-2.1 2.88V21h-4Z"/></svg>
+        </a>
+        <a class="icon-link" href="https://www.instagram.com/brace.fm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4Zm8.94 1.31a1.06 1.06 0 1 1 0 2.12 1.06 1.06 0 0 1 0-2.12ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.75A3.25 3.25 0 1 0 12 15.25 3.25 3.25 0 0 0 12 8.75Z"/></svg>
+        </a>
+        <a class="icon-link" href="https://bsky.app/profile/brace.fm" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.628c-1.444-2.778-5.388-7.184-8.742-9.552C1.887.104 0 1.085 0 3.085c0 .4.23 3.36.365 3.84.47 1.67 2.183 2.096 3.706 1.837-2.66.453-3.335 1.95-1.872 3.447 2.78 2.844 3.993-.714 4.302-.127.558 1.061-.976 3.968 1.088 5.756 1.96 1.697 4.227-.216 4.808-2.16.58 1.944 2.848 3.857 4.808 2.16 2.064-1.788.53-4.695 1.088-5.756.309-.587 1.522 2.971 4.302.127 1.463-1.497.788-2.994-1.872-3.447 1.523.259 3.236-.167 3.706-1.837.135-.48.365-3.44.365-3.84 0-2-1.887-2.981-3.258-2.009C17.388 3.444 13.444 7.85 12 10.628Z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="content card">
+        
+        <!-- iframe -->
+        
+      <div class="embed-wrap">
+  <div
+    id="podcast-player-placeholder"
+    class="podcast-placeholder"
+    data-src="https://widget.spreaker.com/player?show_id=6971444&theme=dark&playlist=show&playlist-continuous=false&chapters-image=false&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true"
+    data-title="BRACE: Der Fußball Culture & Business Podcast"
+  >
+    <div class="podcast-placeholder-inner">
+      <p class="podcast-placeholder-title">Externer Podcast-Player</p>
+      <p class="podcast-placeholder-text">
+  Der Podcast-Player wird von Spreaker bereitgestellt. Erst wenn du ihn aktiv lädst,
+  wird eine Verbindung zu Servern von Spreaker hergestellt. Du kannst deine Einwilligung
+  jederzeit widerrufen, indem du den externen Inhalt wieder ausblendest.
+</p>
+      <button class="button podcast-load-button" type="button" id="open-player-consent">
+        Externen Podcast-Player laden
+      </button>
+        
+    </div>
+  </div>
+</div>
+        
+
+        
+      <button class="expand-button" type="button" aria-expanded="false" aria-controls="podcast-more-text">
+        <span>Über diesen Podcast</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.375a.74.74 0 0 1-.53-.22l-6-6a.75.75 0 1 1 1.06-1.06L12 13.315l5.47-5.22a.75.75 0 0 1 1.06 1.06l-6 6a.74.74 0 0 1-.53.22Z"/></svg>
+      </button>
+
+      <div class="collapsible" id="podcast-more-text">
+        <div class="collapsible-inner">
+            
+            <p>Fußball ist längst mehr als 90 Minuten – und genau dort wird’s spannend: zwischen Popkultur, Mode, Medien und Milliarden-Business. In BRACE, dem Fußball Culture und Business Podcast klären Tim Santen und Misha Verollet-Dahncke, warum man Fußball heute nur versteht, wenn man Culture und Business zusammendenkt – und was passiert, wenn Clubs, Funktionäre und Marken genau das ignorieren.</p>
+
+<p>BRACE ist kein Spieltags-Podcast. Kein Taktikboard. Keine GOAT-Debatte. Sondern ein Blick in den Maschinenraum: </p>
+
+<p>Wir schauen auf unseren Lieblingssport als Kulturplattform, aber auch als Wirtschaftssystem. Wie bleibt Fußball geschäftstüchtig, ohne seine Seele zu verlieren? Was steckt hinter der Entwicklung zum Lifestyle-Universum, in dem sich Rap-Stars, Luxusmarken und Hollywood die Klinke in die Hand geben? Was passiert nach Abpfiff und vor Anpfiff hinter den Kulissen, und vor allem: mit wem? Dieses Drumherum ist längst nicht mehr nur Beiwerk, sondern der Ort, an dem sich gerade entscheidet, wie Fußball morgen aussieht.</p>
+
+<p>Wir, das ist zum einen <a href="https://www.linkedin.com/in/tim-santen-343898102/" target="_blank">Tim Santen</a>: selbstständiger Kommunikations- und Strategieberater aus Hamburg und ehemaliger Pressesprecher eines Proficlubs. Und <a href="https://www.linkedin.com/in/mishaverolletdahncke/" target="_blank">Misha Verollet-Dahncke</a>, Kreativ- und Markenstratege mit über 20 Jahren Erfahrung in der Werbung für internationale Brands.</p>            
+            
+            <p>Wenn dich Fußball abseits der 90 Minuten interessiert: Abonniere BRACE – und komm wöchentlich mit in die Schnittmenge aus Fußball, Culture & Business. Du findest uns natürlich auch <a href="https://www.linkedin.com/company/bracepodcast/" target="_blank">auf LinkedIn</a> und kannst uns eine E-Mail schreiben (klicke unten auf Kontakt).</p>
+         
+        </div>
+      </div>  
+
+      <div class="text-links">
+        <a href="mailto:bracepodcast@proton.me">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+      </div>
+    </section>
+  </main>
+    
+    
+    <!-- modal -->
+    
+    
+    <div class="external-content-overlay" id="external-content-overlay" hidden>
+  <div
+    class="external-content-modal card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="external-content-title"
+    aria-describedby="external-content-description"
+  >
+    <h2 id="external-content-title">Externer Inhalt</h2>
+
+    <p id="external-content-description">
+  Beim Laden des Podcast-Players wird eine Verbindung zu Servern von Spreaker hergestellt.
+  Dabei können personenbezogene Daten (z. B. deine IP-Adresse) übertragen werden.
+</p>
+
+    <p class="external-content-hint">
+      Der Player wird erst nach deiner Zustimmung geladen und kann jederzeit wieder ausgeblendet werden.
+    </p>
+
+    <div class="external-content-actions">
+      <button type="button" class="button" id="accept-external-content">
+        Podcast-Player laden
+      </button>
+      <button type="button" class="button button-secondary" id="decline-external-content">
+        Abbrechen
+      </button>
+    </div>
+
+    <p class="external-content-note">
+      Mehr Infos in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+    </p>
+  </div>
+</div>
+    
+    
+     <script>
+  // Collapsible text
+  const expandButton = document.querySelector('.expand-button');
+  const collapsible = document.getElementById('podcast-more-text');
+
+  if (expandButton && collapsible) {
+    const setPanelState = (isOpen) => {
+      expandButton.setAttribute('aria-expanded', String(isOpen));
+      collapsible.classList.toggle('is-open', isOpen);
+
+      if (isOpen) {
+        collapsible.style.maxHeight = collapsible.scrollHeight + 'px';
+      } else {
+        collapsible.style.maxHeight = '0px';
+      }
+    };
+
+    setPanelState(false);
+
+    expandButton.addEventListener('click', () => {
+      const isOpen = expandButton.getAttribute('aria-expanded') === 'true';
+      setPanelState(!isOpen);
+    });
+
+    window.addEventListener('resize', () => {
+      if (expandButton.getAttribute('aria-expanded') === 'true') {
+        collapsible.style.maxHeight = collapsible.scrollHeight + 'px';
+      }
+    });
+  }
+
+  // External content consent / click-to-load
+  const overlay = document.getElementById('external-content-overlay');
+  const acceptButton = document.getElementById('accept-external-content');
+  const declineButton = document.getElementById('decline-external-content');
+  const playerPlaceholder = document.getElementById('podcast-player-placeholder');
+
+  function showOverlay() {
+    if (overlay) {
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function hideOverlay() {
+    if (overlay) {
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+    }
+  }
+
+  function bindOpenConsentButton() {
+    const openPlayerConsentButton = document.getElementById('open-player-consent');
+    if (openPlayerConsentButton) {
+      openPlayerConsentButton.addEventListener('click', showOverlay);
+    }
+  }
+
+  function loadPodcastPlayer() {
+    if (!playerPlaceholder) return;
+    if (playerPlaceholder.dataset.loaded === 'true') return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = playerPlaceholder.dataset.src;
+    iframe.title = playerPlaceholder.dataset.title || 'Podcast Player';
+    iframe.width = '100%';
+    iframe.height = '350';
+    iframe.frameBorder = '0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+
+    const wrapper = document.createElement('div');
+      wrapper.style.width = '100%';
+
+    wrapper.appendChild(iframe);
+
+    const unloadButton = document.createElement('button');
+    unloadButton.type = 'button';
+    unloadButton.className = 'button button-secondary podcast-unload-button';
+    unloadButton.textContent = 'Externen Podcast-Player wieder ausblenden';
+    unloadButton.style.margin = '12px 0 0';
+    unloadButton.style.width = '100%';
+
+    unloadButton.addEventListener('click', () => {
+      unloadPodcastPlayer();
+    });
+
+    wrapper.appendChild(unloadButton);
+
+    playerPlaceholder.innerHTML = '';
+    playerPlaceholder.appendChild(wrapper);
+    playerPlaceholder.dataset.loaded = 'true';
+  }
+
+  function unloadPodcastPlayer() {
+    if (!playerPlaceholder) return;
+
+    playerPlaceholder.innerHTML = `
+      <div class="podcast-placeholder-inner">
+        <p class="podcast-placeholder-title">Externer Podcast-Player</p>
+        <p class="podcast-placeholder-text">
+          Der Podcast-Player wird von Spreaker bereitgestellt. Erst wenn du ihn aktiv lädst,
+          wird eine Verbindung zu spreaker.com aufgebaut.
+        </p>
+        <button class="button podcast-load-button" type="button" id="open-player-consent">
+          Externen Podcast-Player laden
+        </button>
+      </div>
+    `;
+
+    playerPlaceholder.dataset.loaded = 'false';
+    bindOpenConsentButton();
+  }
+
+  bindOpenConsentButton();
+
+  if (acceptButton) {
+    acceptButton.addEventListener('click', () => {
+      loadPodcastPlayer();
+      hideOverlay();
+    });
+  }
+
+  if (declineButton) {
+    declineButton.addEventListener('click', hideOverlay);
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) {
+        hideOverlay();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && overlay && !overlay.hidden) {
+      hideOverlay();
+    }
+  });
+</script>
+    
+</body>
+</html>
